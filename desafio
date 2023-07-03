@@ -1,0 +1,68 @@
+/*
+Objetivo do programa: simular uma luta entre ryu e ken, determinando ao final quem venceu a luta ou se houve empate 
+dentro da condição de 3 rounds ou caso o usuario digite 0 para sair do round.
+*/
+
+
+#include <stdio.h>
+
+int main()
+{
+	int i, ryu=0, g_ryu=0, g_ken=0, ken=0, round=1, r_ken=0, r_ryu=0, c_ken, fim=1; //declara variáveis e atribui valor às mesmas antes do início do programa
+
+while(fim==1 && fim!=0) /*condição para o programa funcionar, usuário ao final de cada round determina a continuação ou fim do mesmo,
+						obrigando o laço a ocorrer antes de ser permitido encerrar, portanto é impossível terminar o programa sem que ryu ou ken façam algum golpe.*/
+{
+printf("Round %d\n", round); //numero do round rodando
+	
+	//início do round
+
+	//laço de 4 unidades que determina os valores aplicados por ryu
+	for(i=0; i<4; i++)
+	{
+	
+	printf("Digite os valores dos golpes aplicados por Ryu: ");
+	scanf("%d", &g_ryu);
+	
+	ryu=ryu+g_ryu; //a variável ryu recebe o valor dos golpes aplicados por ryu.
+	}
+	
+	for(i=0; i<4; i++) //início do laço de repetição que permite 4 inserções de valores a cada round
+	{
+	
+	printf("Digite os valores dos golpes recebidos por Ryu com numeros negativos: ");
+	scanf("%d", &g_ken);
+	
+	ken=ken+g_ken;  //a variável ken recebe o valor dos golpes que ryu recebeu
+	}
+	
+	
+	//fim do round
+	
+	c_ken=ken*-1;  //converte o valor dos golpes negativos para positivos a fim de facilitar a comparação do vencedor dos rounds.
+	
+	if(ryu>c_ken) //se o numero dos golpes de ryu for maior que ken, ryu vence o round e sua variavel atribui =+1
+	r_ryu++;
+	
+	else if(c_ken>ryu) //se o numero dos golpes de ken for maior que ryu, ken vence o round e sua variavel atribui =+1)
+	r_ken++;
+	
+	//se nenhuma das condições for satisfeita, subentende-se que houve empate e ninguém atribui nada, pois ambas variavei se iniciam em zero.
+	
+	g_ken=0; //zerando variável antes de reiniciar o loop
+	g_ryu=0; //zerando variável antes de reiniciar o loop
+	
+	printf("Digite 1 para continuar a luta ou 0 para encerrar: ");
+	scanf("%d", &fim);
+	round++; //o valor do round é incrementado em +1.
+	} //se digitado 0, o programa é encerrado e inicia-se a comparação de valores para atribuir um vencedor.
+	
+	if(r_ryu>r_ken) //comparação de rounds
+	printf("Ryu Venceu! com %d pontos e Ken perdeu com %d pontos", ryu, ken);
+	
+	else if(r_ken>r_ryu) //comparação de rounds
+	printf("Ken Venceu!");
+	
+	else
+	printf("Empatou");
+}
