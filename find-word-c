@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{ 
+	char palavra[80], texto[80];
+	int i, j;
+
+	fgets(texto, 80, stdin); 
+	fgets(palavra, 80, stdin); 
+	
+	int tamT = strlen(texto) - 1; 
+	
+	int tamP = strlen(palavra) - 1; //O -1 é pelo '\n' 
+	
+	for(i=0; i <= tamT - tamP; i++) //Para cada possível posição de iniício; tamT-tamP é para evitar que a busca passe do limite, analisando por ex o \n ou \0.
+	{ 
+		j=0; 
+	
+		while(j<tamP && palavra[j] == texto[i+j]) //Testa se palavra ocorre; i+j porque i percorre o texto digitado e j percorre a palavra, iniciando sempre em 0 e finalizando em tamP
+			j++; 
+	
+		if(j==tamP) //Se verdadeiro a palavra ocorre na pos. i 
+			printf("%d\n", i); 
+	}
+}
