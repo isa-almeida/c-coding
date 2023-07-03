@@ -1,0 +1,29 @@
+#include<stdio.h>
+
+int main()
+{
+	double vetor1[5], vetor2[5], resultado ;
+	int i;
+
+	//recebendo os valores	
+	for(i=0; i<5; i++)
+	{
+		printf("Digite o valor para a posicao %d do vetor 1: ", i);
+		scanf("%d", &vetor1[i]);
+	}
+	
+	for(i=0; i<5; i++)
+	{
+		printf("Digite o valor para a posicao %d do vetor 2: ", i);
+		scanf("%d", &vetor1[i]);
+	}
+	
+	//calculando o produto
+	for(i=0; i<5; i++)
+	{
+		resultado=resultado+(vetor1[i]*vetor2[i]);
+	}
+	
+	printf("Produto Interno: %d", resultado);
+	
+}
