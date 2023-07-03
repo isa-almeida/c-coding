@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main()
+{
+	char texto[80], texto_invertido[80];
+	int i, j, tam;	
+
+
+printf("Digite um texto de ate 79 caracteres: ");
+fgets(texto, 80, stdin);
+
+tam=0;
+while(texto[tam]!='\0' && texto[tam]!='\n'){ //A condição com \n é para não inverter a quebra de linha também
+	tam++;
+}
+
+texto_invertido[tam]='\0' //ultima posição do vetor string "texto_invertido" recebe \0 para marcar o final do texto invertido, uma vez que sem isto o \0 iria para a primeira posição da variável e não última.
+						 //sem isto aconteceria o seguinte: texto=|F|A|T|E|C|\0|; texto_invertido: |\0|C|E|T|A|F|; o correto é |C|E|T|A|F|\0|.
+
+j=tam-1; //para passar pela posição 0 do vetor e ir até -1
+i=0;
+
+while(i<tam){
+	texto_invertido[j]=texto[i];
+	i++;
+	j--;
+}
+printf("A inversa e: %s", texto_invertido);
+
+}
