@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+int main()
+{
+	int vetor1[5], vetor2[5], comum, i, j;
+	
+	comum=0;
+	
+	//recebendo os valores	
+	for(i=0; i<5; i++)
+	{
+		printf("Digite o valor para a posicao %d do vetor 1: ", i);
+		scanf("%d", &vetor1[i]);
+	}
+	
+	for(i=0; i<5; i++)
+	{
+		printf("Digite o valor para a posicao %d do vetor 2: ", i);
+		scanf("%d", &vetor2[i]);
+	}
+	
+	//comparando valores
+	for(i=0; i<5; i++)
+	{
+		for(j=0; j<5; j++)
+		{
+			if(vetor1[i]==vetor2[j])
+			{
+				printf("Posicao %d do vetor 1 e posicao %d do vetor 2 sao iguais, com valor %d\n", i, j, vetor1[i]);
+				comum++; //se houver algum numero em comum variavel incrementa
+			}
+		}
+	}
+	if(comum==0) //se ao final do laço a variavel ainda estiver em zero, não ha numeros em comum entre os vetores
+	{
+		printf("Nao ha vetores iguais");
+	}
+	
+}
