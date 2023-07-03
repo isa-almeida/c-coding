@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	char texto[80], texto_invertido[80];
+	int i, j, tam;	
+
+
+printf("Digite um texto de ate 79 caracteres: ");
+fgets(texto, 80, stdin);
+
+tam=strlen(texto);
+
+j=tam-1; //o -1 é por conta da quebra de linha \n
+i=0;
+
+	while(i<tam){
+	printf("%c", texto[j]);
+	i++;
+	j--;
+}			
+}
