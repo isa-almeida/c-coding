@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int n, anterior, atual, ordenado, i;
+	
+printf("Digite o valor de n:"); 
+scanf("%d", &n);
+
+scanf("%d", &anterior); //leu um número
+i = 1;
+ordenado = 1; 
+
+while( (i < n) && ordenado)
+{ 
+scanf("%d", &atual); 
+i++; 
+
+	if(atual < anterior) 
+		{
+		ordenado = 0; 
+		}
+anterior = atual; //anterior recebe o valor atual, uma vez que a condição do if não foi satisfeita 
+	}
+}
