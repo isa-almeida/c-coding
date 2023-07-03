@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main() {
+	char nome[21];
+	
+	printf("Digite o nome e sobrenome:\n");
+	fgets(nome, 24, stdin);  //o comando fgets(nome_da_string, tamanho, stdin) ao invés de apenas o comando gets(nome_da_string) é utilizada pois limita o tamanho do texto a ser digitado pelo usuário
+	fflush(stdin); //exclui o buffer armazenado ao utilizar, por exemplo, a tecla enter, que é armazenada em branco pelo comando gets().
+	
+	printf("Bem vindo(a): ");	
+	puts(nome);
+	
+	
+	
+}
+
+
+/*o método scanf só exibe um nome até encontrar um espaço ou tab, portanto para receber uma string com espaço (nome e sobrenome) o comando gets "pega" a string inteira e o 
+comando puts exibe na tela do usuário. Contudo, o comando gets() recebe tudo que for digitado, inclusive nada, portanto é necessário criar uma condicional que force o usuário a
+inserir uma string no campo da tela, além disso, o gets() também armazena os "enters" digitados pelo usuário para seguir ao próximo item, para evitar isso é 
+necessário utilizar fflush(stdin) caso use Windows, ou __fpurge(stdin) para linux
+
+OBS: Nunca use & quando for armazenar uma string. 
+Isso não é necessário, pois string é um vetor, e o nome do vetor já é um endereço, e um endereço é o operador & seguido do nome da variável.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main() {
+	char nome[21], sobrenome[21];
+	
+	printf("Digite o nome: \n");
+	scanf("%s", nome);
+	
+	printf("Digite o sobrenome: \n");
+	scanf("%s", sobrenome);
+	
+	printf("Bem vindo(a): %s %s", &nome, &sobrenome);
+	
+	
+	
+} 
+
+*/
