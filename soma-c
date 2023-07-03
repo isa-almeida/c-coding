@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//variáveis são espaços na memória reservados para alocar informações
+//dados float ocupam mais memória, necessitam de um tratamento mais complexo por se tratar de partes não inteiras, se não é necessário, melhor utilizar o int por ocupar menos espaço 
+// o comando "\n" pula uma linha, enquanto o comando "\t" aplica um recuo = "tab"
+
+//o "%" acessa o conteúdo da variável, enquanto que "&" acessa o endereço da variável.
+
+
+
+int main() {
+
+			double numero1, numero2;
+			
+			
+			printf("Digite o primeiro numero:\t");
+			scanf("%lf", &numero1);
+			
+			printf("Digite o segundo numero:\t");
+			scanf("%lf", &numero2);
+			
+			printf("A soma dos numeros e:\t%4.2lf\nA multiplicacao e:\t%4.2lf\nA diferenca e:\t%4.2lf\nA divisao e:\t%4.2lf", numero1+numero2, numero1*numero2, numero1-numero2, numero1/numero2);
+}
