@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <math.h>
+
+#define PI 3.14 //definir pi como uma constante de valor 3.14. Por padrão, coloca-se letras maiúsculas para facilitar a visualização. 
+
+
+int main(){
+	
+int ret1 = 3, ret2 = 6, retangulo, quadrado = 2, quadradoresult;
+float raio = 4, circulo;
+
+retangulo = ret1 * ret2;
+circulo = PI * pow(raio, 2);
+quadradoresult = pow(quadrado,2);
+
+printf("A area do retangulo e: %d \nA a area do circulo e: %.1f \nA area do quadrado e: %d ",retangulo, circulo, quadrado);
+//%._f delimita o número de casas decimais
+
+
+}
