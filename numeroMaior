@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+
+int main()
+{
+	int n, num, i=1, maior;
+	
+	printf("Numero para n: ");
+	scanf("%d", &n);
+	
+	printf("Numero para iniciar: ");
+	scanf("%d", &maior);
+	
+	while(i<n)
+	{
+		printf("Digite um numero: ");
+		scanf("%d", &num);
+		
+		if(num>maior)
+		maior=num;
+		
+	i++;
+	}
+	
+	printf("%d e maior.", maior);
+}
