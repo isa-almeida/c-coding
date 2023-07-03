@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	float pca, pcf;
+	float multiplicador_25, n_evolucao_id25, multiplicador_medio_id25, resultado_id25;
+	float multiplicador_56, n_evolucao_id56, multiplicador_medio_id56, resultado_id56;
+	float multiplicador_98, n_evolucao_id98, multiplicador_medio_id98, resultado_id98;
+	int i, id, evolucoes;
+	
+	while((evolucoes<1) || (evolucoes>151)) //delimita numero de evolucoes entre 1 e 151, caso seja menor que 1 ou maior que 151 o loop repete e só finaliza quando acata condição
+	{
+	scanf("%d", &evolucoes);
+	}
+	
+	for(i=0; i<evolucoes; i++) //loop para criação do banco de dados
+	{
+		scanf("%d %f %f", &id, &pca, &pcf);
+		
+		if(id==25)
+		{
+			multiplicador_25=multiplicador_25+(pcf/pca); //acumula o valor do multiplicador
+			n_evolucao_id25++; //armazena o numero de evolucoes da espécie
+		}
+		
+		else 
+			if(id==56)
+			{
+				multiplicador_56=multiplicador_56+(pcf/pca); //acumula o valor do multiplicador
+				n_evolucao_id56++; //armazena o numero de evolucoes da especie
+			}
+			else	
+				if(id==98)
+				{
+				multiplicador_98=multiplicador_98+(pcf/pca); //acumula o valor do multiplicador
+				n_evolucao_id98++; //armazena o numero de evolucoes da especie
+				}
+				else
+				printf("Digite ID 25, 56 ou 98!\n"); 
+		}
+	//CALCULO DO VALOR DE MULTIPLICADOR MEDIO DE CADA ESPÉCIE
+	multiplicador_medio_id25=(multiplicador_25/n_evolucao_id25);
+	multiplicador_medio_id56=(multiplicador_56/n_evolucao_id56);
+	multiplicador_medio_id98=(multiplicador_98/n_evolucao_id98);
+
+	//ENQUANTO O USUARIO NÃO DIGITAR 0 0
+	while(id!=0 && pca!=0) //CONSULTA BASE DE DADOS
+	{ 
+		printf("\nDigite id e pca para consulta: ");
+		scanf("%d %f", &id, &pca);
+		
+		if(id==25)
+		{
+			resultado_id25=ceil(pca*multiplicador_medio_id25); //CALCULA O PCF FINAL DA ESPECIE 
+			printf("PCF=%f\n", resultado_id25);
+		}
+		else
+			if(id==56)
+			{
+			resultado_id56=ceil(pca*multiplicador_medio_id56); //CALCULA O PCF FINAL DA ESPECIE 
+			printf("PCF=%f\n", resultado_id56);	
+			}
+			else
+				if(id==98)
+				{
+				resultado_id98=ceil(pca*multiplicador_medio_id98); //CALCULA O PCF FINAL DA ESPECIE 
+				printf("PCF=%f\n", resultado_id98);	
+				}
+				else
+				printf("Digite ID 25, 56 ou 98!\n");
+	}
+}
